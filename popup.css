@@ -2,6 +2,7 @@ body {
     font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 8px;
+    min-width: 100px
 }
 
 #status {

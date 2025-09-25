@@ -2,9 +2,9 @@ function waitForOptimizely(maxAttempts = 20, interval = 500) {
   return new Promise((resolve, reject) => {
     let attempts = 0;
     const timer = setInterval(() => {
-      if (optimizely && typeof optimizely.get === "function") {
+      if (window.optimizely && typeof window.optimizely.get === "function") {
         clearInterval(timer);
-        resolve(optimizely);
+        resolve(window.optimizely);
       } else if (++attempts >= maxAttempts) {
         clearInterval(timer);
         reject(new Error("Optimizely object not found"));
@@ -15,6 +15,7 @@ function waitForOptimizely(maxAttempts = 20, interval = 500) {
 
 (async function () {
   try {
+    console.log("Injected script running, waiting for Optimizely...");
     const optimizely = await waitForOptimizely();
     const activeExperimentIds = optimizely.get("state").getActiveExperimentIds();
     

@@ -4,7 +4,10 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.action.setIcon({ path: "images/icon-gray.png" });
 });
 
-chrome.action.setIcon({ path: 'images/icon-color.png' });
+chrome.tabs.onActivated.addListener(({ tabId }) => {
+    chrome.action.setIcon({ path: "images/icon-gray.png" });
+    optimizelyData =  null;
+});
 
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   if (message.type === "OPTIMIZELY_DATA") {

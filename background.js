@@ -4,7 +4,6 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.action.setIcon({ path: "images/icon-gray.png" });
 });
 
-console.log("Background script running");
 chrome.action.setIcon({ path: 'images/icon-color.png' });
 
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {

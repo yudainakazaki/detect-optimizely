@@ -12,8 +12,6 @@ window.addEventListener ("message", (event) => {
         return;
     }
 
-    console.log('message received in content script:', event);
-
     // Send the data back to the popup
     chrome.runtime.sendMessage({
         type: "OPTIMIZELY_DATA", 

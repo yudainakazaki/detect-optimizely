@@ -1,10 +1,8 @@
 (async () => {
   const statusDiv = document.getElementById("status");
-  console.log("Popup loaded");
 
   chrome.runtime.sendMessage({ type: "GET_OPTIMIZELY_DATA" }, (response) => {
     const data = response.data;
-    console.log("Received data in popup:", data);
     if (data && data.hasActiveTest) {
       const experimentMessages = data.experimentData.map(
         (experiment) =>

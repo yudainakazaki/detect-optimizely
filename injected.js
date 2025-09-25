@@ -15,9 +15,7 @@ function waitForOptimizely(maxAttempts = 20, interval = 500) {
 
 (async function () {
   try {
-    console.log("Injected script running");
     const optimizely = await waitForOptimizely();
-    console.log("Optimizely object:", optimizely);
     const activeExperimentIds = optimizely.get("state").getActiveExperimentIds();
     
     console.log("Active Experiment IDs:", activeExperimentIds);

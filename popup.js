@@ -18,7 +18,10 @@
         </ul>
       `;
     } else {
-      statusDiv.textContent = "No active Optimizely experiment(s) detected";
+      statusDiv.innerHTML = `
+        <p>No active Optimizely experiment(s) detected.</p>
+        <small>If you just switched tabs, please refresh the page to check for experiments.</small>
+      `;
     }
   });
 })();
